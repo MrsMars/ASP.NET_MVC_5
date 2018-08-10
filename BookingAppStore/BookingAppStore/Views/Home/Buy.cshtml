@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Purchasing";
+}
+
+<div>
+    <h3>Form of purchase registration</h3>
+    <form method="post">
+        <input type="hidden" name="BookId" value="@ViewBag.BookId" />
+        <table>
+            <tr>
+                <td><p>Enter your name</p></td>
+                <td><input type="text" name="Person" value="" /></td>
+            </tr>
+            <tr>
+                <td><p>Enter your adress:</p></td>
+                <td><input type="text" name="Adress" value="" /></td>
+            </tr>
+            <tr>
+                <td><input type="submit" name="" value="Send" /></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
