@@ -20,7 +20,7 @@ namespace BookingAppStore.Models
 
         protected override void Seed(BookContext db)
         {
-            db.Books.Add(new Book { Name = "The Adventures of Sherlock Holmes", Author = "Arhur Conan Doyle", Price = 220 });
+            db.Books.Add(new Book { Name = "Sherlock Holmes", Author = "Arhur Conan Doyle", Price = 220 });
             db.Books.Add(new Book { Name = "A Tale of Two Cities", Author = "Charles Dickens", Price = 180 });
             db.Books.Add(new Book { Name = "Man's Search for Meaning", Author = "Viktor E Frankl", Price = 150 });
 

@@ -1,27 +1,23 @@
 ﻿body{
     font-size: 13px;
-    font-family: Verdana, Arial, Helvettica, sans-serif;
-    background-color: #f7f7fa;
+    font-family: Verdana, Arial, sans-serif;
+    background-color: blue;
     padding-left: 40px;
 }
 
 nav{display: block;}
 
 .menu{padding-left: 40px;}
-
 .menu ul{list-style: none;}
-
 .menu li{display: inline;}
-
 .menu a:hover{color: red;}
 
 table{
     vertical-align: middle;
     text-align: left;
+    border-spacing: 5px;
 }
-
 .header{font-weight: bold;}
-
 td{padding-right: 10px;}
 
 
