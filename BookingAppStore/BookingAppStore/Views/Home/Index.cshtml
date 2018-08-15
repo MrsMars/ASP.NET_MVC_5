@@ -31,6 +31,12 @@
             }
         </table>
     </div>
+
+    @Html.Action("GetList")
+    @*@Html.Partial("GetList", new string[] { "Fantastic", "Camedian", "Drama", "Adventure" })*@
+    @*@{ 
+        Html.RenderPartial("GetList");
+    }*@
     @section Footer{
         <h5>All rights reserved. Syte Corp. 2018.</h5>
     }

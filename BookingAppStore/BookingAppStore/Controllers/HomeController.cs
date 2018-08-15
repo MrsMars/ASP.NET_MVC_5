@@ -19,12 +19,21 @@ namespace BookingAppStore.Controllers
         {
             // get our book list
             var books = db.Books;
+            ViewBag.Message = "This is a partial view";
 
             // transfer in views
             //ViewBag.Books = books;
 
             return View(books);
         }
+
+        public ActionResult GetList()
+        {
+            string[] genres = new string[] { "Fantastic", "Camedian", "Drama", "Adventure" };
+            return PartialView(genres);
+        }
+
+
         public ActionResult BookIndex()
         {
             var books = db.Books;
