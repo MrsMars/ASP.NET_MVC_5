@@ -13,7 +13,19 @@
     </nav>
     @RenderBody()
     <footer>
-        @RenderSection("Footer", false)
+        @*@RenderSection("Footer", false)*@
+        <footer>
+            @if (IsSectionDefined("Footer"))
+            {
+                @RenderSection("Footer")
+            }
+            else
+            {
+                <span>
+                    Defaul footer...
+                </span>
+            }
+        </footer>
     </footer>
 </body>
 </html>
