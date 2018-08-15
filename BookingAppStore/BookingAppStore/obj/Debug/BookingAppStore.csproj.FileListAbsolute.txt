@@ -103,3 +103,4 @@ D:\Work\GitHub\ASP.NET_MVC_5\BookingAppStore\BookingAppStore\bin\ru\System.Web.W
 D:\Work\GitHub\ASP.NET_MVC_5\BookingAppStore\BookingAppStore\obj\Debug\BookingAppStore.csproj.CoreCompileInputs.cache
 D:\Work\GitHub\ASP.NET_MVC_5\BookingAppStore\BookingAppStore\obj\Debug\BookingAppStore.dll
 D:\Work\GitHub\ASP.NET_MVC_5\BookingAppStore\BookingAppStore\obj\Debug\BookingAppStore.pdb
+D:\Work\GitHub\ASP.NET_MVC_5\BookingAppStore\BookingAppStore\obj\Debug\BookingAppStore.csprojResolveAssemblyReference.cache

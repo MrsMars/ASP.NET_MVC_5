@@ -1,7 +1,9 @@
 ﻿using BookingAppStore.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -19,10 +21,24 @@ namespace BookingAppStore.Controllers
             var books = db.Books;
 
             // transfer in views
-            ViewBag.Books = books;
+            //ViewBag.Books = books;
 
-            return View();
+            return View(books);
         }
+        public ActionResult BookIndex()
+        {
+            var books = db.Books;
+            return View(books);
+        }
+
+        // async method
+        public async Task<ActionResult> BookList()
+        {
+            IEnumerable<Book> books = await db.Books.ToListAsync();
+            ViewBag.Books = books;
+            return View("Index");
+        }
+
 
         [HttpGet]
         public ActionResult Buy(int id)

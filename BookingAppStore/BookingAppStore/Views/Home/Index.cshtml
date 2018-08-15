@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<BookingAppStore.Models.Book>
+
+@{
     ViewBag.Title = "Book Store";
 }
 
@@ -18,7 +20,7 @@
                 <td><p>Author</p></td>
                 <td><p>Price</p></td>
             </tr>
-            @foreach (var b in ViewBag.Books)
+            @foreach (var b in Model)
             {
                 <tr>
                     <td><p>@b.Name</p></td>
