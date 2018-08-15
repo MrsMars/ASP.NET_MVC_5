@@ -1,4 +1,5 @@
-﻿@model IEnumerable<BookingAppStore.Models.Book>
+﻿@using BookingAppStore.Models;
+@model IEnumerable<Book>
 
 @{
     ViewBag.Title = "Book Store";
@@ -32,7 +33,42 @@
         </table>
     </div>
 
-    @Html.Action("GetList")
+    @helper BookList(IEnumerable<Book> books)
+    { 
+        <ul>
+            @foreach(Book b in books)
+            {
+                <li>@b.Name</li>
+            }
+        </ul>  
+    }
+
+    <h3>Book list</h3>
+    @BookList(Model)
+
+    @*@helper CreateList(string[] all)
+    { 
+        <ul>
+            @foreach(string s in all)
+            {
+                <li>@s</li>
+            }
+        </ul>
+    }*@
+    @{ string[] genres = new string[] { "Fantastic", "Camedian", "Drama", "Adventure" }; }
+    @{ string[] bookData = new string[] { "2012", "2011", "2010", "2009", "2008", "2007" }; }
+
+    @using BookingAppStore.Helpers
+    @Html.CreateList(bookData)
+    @ListHelper.CreateList(Html, genres)
+
+    @*<h3>Genges</h3>
+    @CreateList(genres)
+    <br />
+    <h3>Book Data</h3>
+    @CreateList(bookData)*@
+
+                @*@Html.Action("GetList")*@
     @*@Html.Partial("GetList", new string[] { "Fantastic", "Camedian", "Drama", "Adventure" })*@
     @*@{ 
         Html.RenderPartial("GetList");
