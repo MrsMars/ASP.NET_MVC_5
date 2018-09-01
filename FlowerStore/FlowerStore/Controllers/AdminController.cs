@@ -33,23 +33,30 @@ namespace FlowerStore.Controllers
         // GET: Admin/Create
         public ActionResult Create()
         {
-            return View();
+            Flower flower = new Flower();
+
+            return View(flower);
         }
 
         // POST: Admin/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Flower flower)
         {
             try
             {
                 // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Flowers.Add(flower);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }                
             }
-            catch
+            catch(Exception ex)
             {
-                return View();
+                ModelState.AddModelError(String.Empty, ex);
             }
+            return View(flower);
         }
 
         // GET: Admin/Edit/5
