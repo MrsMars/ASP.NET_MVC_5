@@ -21,5 +21,14 @@ namespace FlowerStore.Controllers
                            select flower).ToList();
             return View(flowers);
         }
+        public ActionResult Details(int id)
+        {
+            // show details about a flower
+            var flowerDetails = (from flower in db.Flowers
+                           where flower.FlowerId == id
+                           select flower).First();
+            return View(flowerDetails);
+        }
+
     }
 }
