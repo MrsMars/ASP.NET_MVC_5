@@ -94,22 +94,30 @@ namespace FlowerStore.Controllers
         // GET: Admin/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var flowerDelete = (from flower in db.Flowers
+                              where flower.FlowerId == id
+                              select flower).First();
+            return View(flowerDelete);
         }
 
         // POST: Admin/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
+            var flowerDelete = (from flower in db.Flowers
+                                where flower.FlowerId == id
+                                select flower).First();
             try
             {
                 // TODO: Add delete logic here
+                db.Flowers.Remove(flowerDelete);
+                db.SaveChanges();
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(flowerDelete);
             }
         }
     }
