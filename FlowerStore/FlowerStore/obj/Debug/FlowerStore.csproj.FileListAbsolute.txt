@@ -30,3 +30,4 @@ D:\Work\GitHub\ASP.NET_MVC_5\FlowerStore\FlowerStore\bin\ru\System.Web.Mvc.resou
 D:\Work\GitHub\ASP.NET_MVC_5\FlowerStore\FlowerStore\obj\Debug\FlowerStore.csproj.CoreCompileInputs.cache
 D:\Work\GitHub\ASP.NET_MVC_5\FlowerStore\FlowerStore\obj\Debug\FlowerStore.dll
 D:\Work\GitHub\ASP.NET_MVC_5\FlowerStore\FlowerStore\obj\Debug\FlowerStore.pdb
+D:\Work\GitHub\ASP.NET_MVC_5\FlowerStore\FlowerStore\obj\Debug\FlowerStore.csprojResolveAssemblyReference.cache

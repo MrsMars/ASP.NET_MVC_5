@@ -62,22 +62,32 @@ namespace FlowerStore.Controllers
         // GET: Admin/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var flowerEdit = (from flower in db.Flowers
+                              where flower.FlowerId == id
+                              select flower).First();
+
+            return View(flowerEdit);
         }
 
         // POST: Admin/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
+            var flowerEdit = (from flower in db.Flowers
+                              where flower.FlowerId == id
+                              select flower).First();
+
             try
             {
                 // TODO: Add update logic here
+                UpdateModel(flowerEdit);
+                db.SaveChanges();
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(flowerEdit);
             }
         }
 

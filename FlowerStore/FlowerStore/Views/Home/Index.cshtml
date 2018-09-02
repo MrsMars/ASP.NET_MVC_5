@@ -1,8 +1,10 @@
 ﻿@model IEnumerable<FlowerStore.Models.Flower>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Flower garden";
 }
+
+<h2>Admin Console</h2>
 
 <p>
     @Html.ActionLink("Admin", "Index", "Admin")
@@ -21,21 +23,22 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Article)
-        </td>
-        <td>
-            @Html.ActionLink("Details", "Details", new { id=item.FlowerId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Article)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.FlowerId })
+            </td>
+        </tr>
+    }
 
 </table>
