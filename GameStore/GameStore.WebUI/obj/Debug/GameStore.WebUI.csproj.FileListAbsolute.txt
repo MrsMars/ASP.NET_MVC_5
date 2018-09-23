@@ -110,3 +110,8 @@ D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.WebUI\obj\Debug\GameStore.WebUI
 D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.WebUI\obj\Debug\GameStore.WebUI.csproj.CopyComplete
 D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.WebUI\obj\Debug\GameStore.WebUI.dll
 D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.WebUI\obj\Debug\GameStore.WebUI.pdb
+D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.WebUI\bin\EntityFramework.dll
+D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.WebUI\bin\EntityFramework.SqlServer.dll
+D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.WebUI\bin\GameStore.Domain.dll.config
+D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.WebUI\bin\EntityFramework.xml
+D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.WebUI\bin\EntityFramework.SqlServer.xml

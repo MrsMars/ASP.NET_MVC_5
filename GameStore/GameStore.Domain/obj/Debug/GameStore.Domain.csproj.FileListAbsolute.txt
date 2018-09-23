@@ -13,8 +13,12 @@ D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.Domain\bin\Debug\System.Web.Raz
 D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.Domain\bin\Debug\System.Web.WebPages.xml
 D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.Domain\bin\Debug\System.Web.WebPages.Deployment.xml
 D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.Domain\bin\Debug\System.Web.WebPages.Razor.xml
-D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.Domain\obj\Debug\GameStore.Domain.csprojAssemblyReference.cache
 D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.Domain\obj\Debug\GameStore.Domain.csproj.CoreCompileInputs.cache
 D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.Domain\obj\Debug\GameStore.Domain.csproj.CopyComplete
 D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.Domain\obj\Debug\GameStore.Domain.dll
 D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.Domain\obj\Debug\GameStore.Domain.pdb
+D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.Domain\bin\Debug\GameStore.Domain.dll.config
+D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.Domain\bin\Debug\EntityFramework.dll
+D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.Domain\bin\Debug\EntityFramework.SqlServer.dll
+D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.Domain\bin\Debug\EntityFramework.xml
+D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.Domain\bin\Debug\EntityFramework.SqlServer.xml

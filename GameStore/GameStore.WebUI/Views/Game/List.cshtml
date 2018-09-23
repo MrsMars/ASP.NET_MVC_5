@@ -5,11 +5,11 @@
     ViewBag.Title = "Articles";
 }
 
-@foreach(var p in Model)
+@foreach(var p in @Model)
 {
     <div>
         <h3>@p.Name</h3>
-        <h3>@p.Description</h3>
-        <h3>@p.Price.ToString("# $")</h3>
+        <p>@p.Description</p>
+        <h4>@p.Price.ToString("# $")</h4>
     </div>
 }

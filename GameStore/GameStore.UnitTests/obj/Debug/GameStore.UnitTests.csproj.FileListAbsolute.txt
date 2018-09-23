@@ -50,3 +50,6 @@ D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.UnitTests\obj\Debug\GameStore.U
 D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.UnitTests\obj\Debug\GameStore.UnitTests.csproj.CopyComplete
 D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.UnitTests\obj\Debug\GameStore.UnitTests.dll
 D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.UnitTests\obj\Debug\GameStore.UnitTests.pdb
+D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.UnitTests\bin\Debug\EntityFramework.dll
+D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.UnitTests\bin\Debug\GameStore.Domain.dll.config
+D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.UnitTests\bin\Debug\EntityFramework.xml
