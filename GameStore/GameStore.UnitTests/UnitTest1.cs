@@ -229,5 +229,26 @@ namespace GameStore.UnitTests
             Assert.AreEqual(results[0].Game, game_1);
             Assert.AreEqual(results[1].Game, game_2);
         }
+
+        [TestMethod]
+        public void Can_Add_Quantity_For_Existing_Lines()
+        {
+            // arrange
+            Game game_1 = new Game { GameId = 1, Name = "Game_1" };
+            Game game_2 = new Game { GameId = 2, Name = "Game_2" };
+
+            Cart cart = new Cart();
+
+            // act
+            cart.AddItem(game_1, 1);
+            cart.AddItem(game_2, 1);
+            cart.AddItem(game_1, 5);
+            List<CartLine> results = cart.Lines.OrderBy(c => c.Game.GameId).ToList();
+
+            // assert
+            Assert.AreEqual(results.Count(), 2);
+            Assert.AreEqual(results[0].Quantity, 6);
+            Assert.AreEqual(results[1].Quantity, 1);
+        }
     }
 }
