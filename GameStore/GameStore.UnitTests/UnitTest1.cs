@@ -34,7 +34,7 @@ namespace GameStore.UnitTests
             controller.pageSize = 3;
 
             // act
-            GameListViewModel result = (GameListViewModel)controller.List(2).Model;
+            GameListViewModel result = (GameListViewModel)controller.List(null, 2).Model;
 
             // assert
             List<Game> games = result.Games.ToList();
@@ -86,7 +86,7 @@ namespace GameStore.UnitTests
             controller.pageSize = 3;
 
             // act
-            GameListViewModel result = (GameListViewModel)controller.List(2).Model;
+            GameListViewModel result = (GameListViewModel)controller.List(null, 2).Model;
 
             // Assers
             PagingInfo pagingInfo = result.PagingInfo;
@@ -94,6 +94,85 @@ namespace GameStore.UnitTests
             Assert.AreEqual(pagingInfo.ItemsPerPage, 3);
             Assert.AreEqual(pagingInfo.TotalItems, 5);
             Assert.AreEqual(pagingInfo.TotalPages, 2);
+        }
+
+        [TestMethod]
+        public void Can_Filter_Games()
+        {
+            // arrange
+            Mock<IGameRepository> mock = new Mock<IGameRepository>();
+
+            mock.Setup(m => m.Games).Returns(new List<Game>
+            {
+                new Game { GameId = 1, Name = "Game_1", Category = "Cat_1"},
+                new Game { GameId = 2, Name = "Game_2", Category = "Cat_2"},
+                new Game { GameId = 3, Name = "Game_3", Category = "Cat_1"},
+                new Game { GameId = 4, Name = "Game_4", Category = "Cat_2"},
+                new Game { GameId = 5, Name = "Game_5", Category = "Cat_3"}
+            });
+
+            GameController controller = new GameController(mock.Object);
+            controller.pageSize = 3;
+
+            // action
+            List<Game> result = ((GameListViewModel)controller.List("Cat_2", 1).Model).Games.ToList();
+
+            // Assert
+            Assert.AreEqual(result.Count(), 2);
+            Assert.IsTrue(result[0].Name == "Game_2" && result[0].Category == "Cat_2");
+            Assert.IsTrue(result[1].Name == "Game_4" && result[1].Category == "Cat_2");
+        }
+
+        [TestMethod]
+        public void Can_Create_Categories()
+        {
+            // arrange - имитированное хранилище
+            Mock<IGameRepository> mock = new Mock<IGameRepository>();
+
+            mock.Setup(m => m.Games).Returns(new List<Game>
+            {
+                new Game { GameId = 1, Name = "Game_1", Category = "Симулятор" },
+                new Game { GameId = 2, Name = "Game_2", Category = "Симулятор" },
+                new Game { GameId = 3, Name = "Game_3", Category = "Шутер" },
+                new Game { GameId = 4, Name = "Game_4", Category = "RPG" }
+            });
+
+            // arrange - создание контроллера
+            NavController target = new NavController(mock.Object);
+
+            // act
+            List<string> results = ((IEnumerable<string>)target.Menu().Model).ToList();
+
+            // assert
+            Assert.AreEqual(results.Count(), 3);
+            Assert.AreEqual(results[0], "RPG");
+            Assert.AreEqual(results[1], "Симулятор");
+            Assert.AreEqual(results[2], "Шутер");
+        }
+
+        [TestMethod]
+        public void Indicates_Selected_Category()
+        {
+            // arrange - создание имитированного хранилища
+            Mock<IGameRepository> mock = new Mock<IGameRepository>();
+
+            mock.Setup(m => m.Games).Returns(new Game[]
+            {
+                new Game { GameId = 1, Name = "Game_1", Category = "Симулятор" },
+                new Game { GameId = 2, Name = "Game_2", Category = "Шутер" }
+            });
+
+            // arrange - создание контроллера
+            NavController target = new NavController(mock.Object);
+
+            // arrange - определение выюранной категории 
+            string categoryToSelect = "Шутер";
+
+            // act
+            string result = target.Menu(categoryToSelect).ViewBag.SelectedCategory;
+
+            // assert
+            Assert.AreEqual(categoryToSelect, result);
         }
     }
 }
