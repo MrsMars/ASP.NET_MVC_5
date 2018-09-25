@@ -250,5 +250,66 @@ namespace GameStore.UnitTests
             Assert.AreEqual(results[0].Quantity, 6);
             Assert.AreEqual(results[1].Quantity, 1);
         }
+
+        [TestMethod]
+        public void Can_Remove_Line()
+        {
+            // arrange
+            Game game_1 = new Game { GameId = 1, Name = "Game_1" };
+            Game game_2 = new Game { GameId = 2, Name = "Game_2" };
+            Game game_3 = new Game { GameId = 3, Name = "Game_3" };
+
+            Cart cart = new Cart();
+
+            cart.AddItem(game_1, 1);
+            cart.AddItem(game_2, 4);
+            cart.AddItem(game_3, 2);
+            cart.AddItem(game_2, 1);
+
+            // act
+            cart.RemoveLine(game_2);
+
+            // assert
+            Assert.AreEqual(cart.Lines.Where(c => c.Game == game_2).Count(), 0);
+            Assert.AreEqual(cart.Lines.Count(), 2);
+        }
+
+        [TestMethod]
+        public void Caclulate_Cart_Total()
+        {
+            // arrange
+            Game game_1 = new Game { GameId = 1, Name = "Game_1", Price = 100 };
+            Game game_2 = new Game { GameId = 2, Name = "Game_2", Price = 55 };
+
+            Cart cart = new Cart();
+
+            // act
+            cart.AddItem(game_1, 1);
+            cart.AddItem(game_2, 1);
+            cart.AddItem(game_1, 5);
+            decimal result = cart.ComputeTotalValue();
+
+            // assert
+            Assert.AreEqual(result, 655);
+        }
+
+        [TestMethod]
+        public void Can_Clear_contents()
+        {
+            // arrange
+            Game game_1 = new Game { GameId = 1, Name = "Game_1", Price = 100 };
+            Game game_2 = new Game { GameId = 2, Name = "Game_2", Price = 55 };
+
+            Cart cart = new Cart();
+
+            // act
+            cart.AddItem(game_1, 1);
+            cart.AddItem(game_2, 1);
+            cart.AddItem(game_1, 5);
+            cart.Clear();
+
+            // assert
+            Assert.AreEqual(cart.Lines.Count(), 0);
+        }
     }
 }
