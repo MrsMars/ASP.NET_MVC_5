@@ -10,7 +10,7 @@ namespace GameStore.Domain.Entities
     public class ShippingDetails
     {
         [Required(ErrorMessage = "Please, enter your name")]
-        public string Nmae { get; set; }
+        public string Name { get; set; }
 
         [Required(ErrorMessage ="Your first adress")]
         public string Line1 { get; set; }
