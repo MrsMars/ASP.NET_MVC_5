@@ -1,7 +1,13 @@
 ﻿
-@{
-    ViewBag.Title = "Summary";
-}
+@model GameStore.Domain.Entities.Cart
 
-<h2>Summary</h2>
+<div class="navbar-right">
+    @Html.ActionLink("Order it", "Index", "Cart", new { returnUrl = Request.Url.PathAndQuery }, new { @class = "btn btn-default navbar-btn" })
+</div>
+
+<div class="navbar-text navbar-right">
+    <b>Your cart:</b>
+    @Model.Lines.Sum(x => x.Quantity) game(s),
+    @Model.ComputeTotalValue().ToString("# $")
+</div>
 
