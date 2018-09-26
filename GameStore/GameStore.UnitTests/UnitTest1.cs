@@ -311,5 +311,61 @@ namespace GameStore.UnitTests
             // assert
             Assert.AreEqual(cart.Lines.Count(), 0);
         }
+
+        [TestMethod]
+        public void Can_Add_To_Cart()
+        {
+            // arrange
+            Mock<IGameRepository> mock = new Mock<IGameRepository>();
+
+            mock.Setup(m => m.Games).Returns(new List<Game> { new Game { GameId = 1, Name = "Game_1", Category = "Cat_1" } }.AsQueryable());
+
+            Cart cart = new Cart();
+
+            CartController controller = new CartController(mock.Object);
+
+            // act
+            controller.AddToCart(cart, 1, null);
+
+            // assert
+            Assert.AreEqual(cart.Lines.Count(), 1);
+            Assert.AreEqual(cart.Lines.ToList()[0].Game.GameId, 1);
+        }
+
+        [TestMethod]
+        public void Adding_Game_To_Goes_To_Cart_Screen()
+        {
+            // arrange
+            Mock<IGameRepository> mock = new Mock<IGameRepository>();
+
+            mock.Setup(m => m.Games).Returns(new List<Game> { new Game { GameId = 1, Name = "Game_1", Category = "Cat_1" } }.AsQueryable());
+
+            Cart cart = new Cart();
+
+            CartController controller = new CartController(mock.Object);
+
+            // act
+            RedirectToRouteResult result = controller.AddToCart(cart, 2, "myUrl");
+
+            // assers
+            Assert.AreEqual(result.RouteValues["action"], "Index");
+            Assert.AreEqual(result.RouteValues["returnUrl"], "myUrl");
+        }
+
+        [TestMethod]
+        public void Can_View_Cart_Contents()
+        {
+            // arrange 
+            Cart cart = new Cart();
+
+            CartController target = new CartController(null);
+
+            // act
+            CartIndexViewModel result = (CartIndexViewModel)target.Index(cart, "myUrl").ViewData.Model;
+
+            // assert
+            Assert.AreSame(result.Cart, cart);
+            Assert.AreSame(result.ReturnUrl, "myUrl");
+        }
     }
 }
