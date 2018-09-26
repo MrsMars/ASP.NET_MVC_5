@@ -45,5 +45,7 @@ namespace GameStore.WebUI.Controllers
         }
 
         public PartialViewResult Summary(Cart cart) { return PartialView(cart); }
+
+        public ViewResult Checkout(Cart cart, ShippingDetails shippingDetails) { return View(new ShippingDetails()); }
     }
 }
