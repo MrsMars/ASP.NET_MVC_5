@@ -28,6 +28,10 @@ namespace GameStore.WebUI.Infrastructure
         {
             // bonds
             kernel.Bind<IGameRepository>().To<EFGameRepository>();
+
+            EmailSettings emailSettings = new EmailSettings { WriteAsFile = bool.Parse(ConfigurationManager.AppSettings["Email.WriteAsFile"] ?? "false") };
+
+            kernel.Bind<IOrderProcessor>().To<EmailOrderProcessor>().WithConstructorArgument("settings", emailSettings);
         }
     }
 }

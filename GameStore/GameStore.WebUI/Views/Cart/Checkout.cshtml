@@ -2,7 +2,7 @@
 @model GameStore.Domain.Entities.ShippingDetails
 
 @{
-    ViewBag.Title = "GameStore: Order form";
+    ViewBag.Title = "GameStore: Ordering form";
 }
 
 <h2>Place an order now</h2>
@@ -11,31 +11,23 @@
 @using (Html.BeginForm())
 {
     <h3>Details</h3>
-    <div class="form-group">
-        <label>Your name:</label>
-        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
-    </div>
+    foreach(var property in ViewData.ModelMetadata.Properties)
+    {
+        if(property.PropertyName != "Name" && property.PropertyName != "GiftWrap")
+        {
+            <div class="form-group">
+                <label>@(property.DisplayName ?? property.PropertyName)</label>
+                @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
+            </div>
+        }
+    }
 
-    <h3>Adress</h3>
-    <div class="form-group">
-        <label>First Adress:</label>
-        @Html.TextBoxFor(x => x.Line1, new { @class = "form-control" })
-    </div>
-    <div class="form-group">
-        <label>Second Adress:</label>
-        @Html.TextBoxFor(x => x.Line2, new { @class = "form-control" })
-    </div>
-    <div class="form-group">
-        <label>Third Adress:</label>
-        @Html.TextBoxFor(x => x.Line3, new { @class = "form-control" })
-    </div>
-    <div class="form-group">
-        <label>City:</label>
-        @Html.TextBoxFor(x => x.City, new { @class = "form-control" })
-    </div>
-    <div class="form-group">
-        <label>Country:</label>
-        @Html.TextBoxFor(x => x.Country, new { @class = "form-control" })
+    <h3>Options</h3>
+    <div class="checkbox">
+        <label>
+            @Html.EditorFor(x => x.GiftWrap)
+            Gift wrapper
+        </label>
     </div>
 
     <div class="text-center">

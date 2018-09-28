@@ -322,7 +322,7 @@ namespace GameStore.UnitTests
 
             Cart cart = new Cart();
 
-            CartController controller = new CartController(mock.Object);
+            CartController controller = new CartController(mock.Object, null);
 
             // act
             controller.AddToCart(cart, 1, null);
@@ -342,7 +342,7 @@ namespace GameStore.UnitTests
 
             Cart cart = new Cart();
 
-            CartController controller = new CartController(mock.Object);
+            CartController controller = new CartController(mock.Object, null);
 
             // act
             RedirectToRouteResult result = controller.AddToCart(cart, 2, "myUrl");
@@ -358,7 +358,7 @@ namespace GameStore.UnitTests
             // arrange 
             Cart cart = new Cart();
 
-            CartController target = new CartController(null);
+            CartController target = new CartController(null, null);
 
             // act
             CartIndexViewModel result = (CartIndexViewModel)target.Index(cart, "myUrl").ViewData.Model;
@@ -366,6 +366,68 @@ namespace GameStore.UnitTests
             // assert
             Assert.AreSame(result.Cart, cart);
             Assert.AreSame(result.ReturnUrl, "myUrl");
+        }
+
+        [TestMethod]
+        public void Cannot_Ckeckout_Empty_Cart()
+        {
+            // arrange
+            Mock<IOrderProcessor> mock = new Mock<IOrderProcessor>();
+
+            Cart cart = new Cart();
+
+            ShippingDetails shippingDetails = new ShippingDetails();
+
+            CartController controller = new CartController(null, mock.Object);
+
+            // act
+            ViewResult result = controller.Checkout(cart, shippingDetails);
+
+            // assert
+            mock.Verify(m => m.ProcessOrder(It.IsAny<Cart>(), It.IsAny<ShippingDetails>()), Times.Never());     // заказ не был передан обработчику
+            Assert.AreEqual("", result.ViewName);                                                               // метод вернул стандартное представление
+            Assert.AreEqual(false, result.ViewData.ModelState.IsValid);                                         // представлению передана неверная модель
+        }
+
+        [TestMethod]
+        public void Cannot_Checkout_Invalid_ShippingDetails()
+        {
+            // arrange
+            Mock<IOrderProcessor> mock = new Mock<IOrderProcessor>();
+
+            Cart cart = new Cart();
+            cart.AddItem(new Game(), 1);
+
+            CartController controller = new CartController(null, mock.Object);
+            controller.ModelState.AddModelError("error", "error");
+
+            // act
+            ViewResult result = controller.Checkout(cart, new ShippingDetails());
+
+            // assert
+            mock.Verify(m => m.ProcessOrder(It.IsAny<Cart>(), It.IsAny<ShippingDetails>()), Times.Never());     // заказ не был передан обработчику
+            Assert.AreEqual("", result.ViewName);                                                               // метод вернул стандартное представление
+            Assert.AreEqual(false, result.ViewData.ModelState.IsValid);                                         // представлению передана неверная модель
+        }
+
+        [TestMethod]
+        public void Can_Checkout_And_Submit_Order()
+        {
+            // arrange
+            Mock<IOrderProcessor> mock = new Mock<IOrderProcessor>();
+
+            Cart cart = new Cart();
+            cart.AddItem(new Game(), 1);
+
+            CartController controller = new CartController(null, mock.Object);
+
+            // act
+            ViewResult result = controller.Checkout(cart, new ShippingDetails());
+
+            // assert
+            mock.Verify(m => m.ProcessOrder(It.IsAny<Cart>(), It.IsAny<ShippingDetails>()), Times.Once());      // проверка, что заказ передан обработчику
+            Assert.AreEqual("Completed", result.ViewName);                                                      // метод возвращает представление
+            Assert.AreEqual(true, result.ViewData.ModelState.IsValid);                                          // в представление передаётся допустимая модель
         }
     }
 }
