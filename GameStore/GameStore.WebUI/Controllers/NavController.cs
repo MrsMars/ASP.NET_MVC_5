@@ -13,7 +13,7 @@ namespace GameStore.WebUI.Controllers
 
         public NavController(IGameRepository repo) { repository = repo; }
 
-        public PartialViewResult Menu(string category = null, bool horizontalNav = false)
+        public PartialViewResult Menu(string category = null)
         {
             ViewBag.SelectedCategory = category;
 
@@ -22,9 +22,7 @@ namespace GameStore.WebUI.Controllers
                 .Distinct()
                 .OrderBy(x => x);
 
-            string viewName = horizontalNav ? "MenuHorizontal" : "Menu";
-
-            return PartialView(viewName, categories);
+            return PartialView("FlexMenu", categories);
         }
     }
 }
