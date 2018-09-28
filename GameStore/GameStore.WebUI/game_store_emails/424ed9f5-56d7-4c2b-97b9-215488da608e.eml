@@ -1,0 +1,14 @@
+X-Sender: gamestore@example.com
+X-Receiver: orders@Example.com
+MIME-Version: 1.0
+From: gamestore@example.com
+To: orders@Example.com
+Date: 28 Sep 2018 17:04:51 +0300
+Subject: New order was sent
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: base64
+
+TmV3IG9yZGVyIHdhcyBwYXJzZWQNCi0tLQ0KSXRlbXM6DQoxIHggVElUQU5GQUxMIHRh
+dGFsOiAywqAyOTksMDAg4oK9MiB4IEJhdHRsZWZpZWxkIDQgdGF0YWw6IDHCoDc5OCw4
+MCDigr1Ub3RhbCBjb3N0OiA0wqAwOTcsODAg4oK9LS0tDQpEZWxpdmVyeToNCkFsaWNl
+DQp3cQ0Kd3ENCndxDQp3cQ0Kd3ENCi0tLQ0KR2lmdCB3cmFwcGVyOiBZZXM=

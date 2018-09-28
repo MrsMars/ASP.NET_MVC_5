@@ -65,6 +65,9 @@ namespace GameStore.WebUI.Controllers
             {
                 orderProcessor.ProcessOrder(cart, shippingDetails);
                 cart.Clear();
+
+                ViewBag.Name = shippingDetails.Name;
+
                 return View("Completed");
             }
             else { return View(shippingDetails); }

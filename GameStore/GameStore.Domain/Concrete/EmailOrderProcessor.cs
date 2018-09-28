@@ -20,7 +20,7 @@ namespace GameStore.Domain.Concrete
         public string ServerName = "smtp.example.com";
         public int ServerPort = 587;
         public bool WriteAsFile = true;
-        public string FileLocation = @"D:\Work\GitHub\ASP.NET_MVC_5\GameStore\game_store_emails";
+        public string FileLocation = @"D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.WebUI\game_store_emails";
 
     }
 
