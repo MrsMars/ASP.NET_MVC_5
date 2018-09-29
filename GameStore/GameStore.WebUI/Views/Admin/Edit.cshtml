@@ -7,10 +7,10 @@
 
 <div class="panel">
     <div class="panel-heading">
-        <h3>Editing "@Model.Name> game</h3>
+        <h3>Editing "@Model.Name" game</h3>
     </div>
 
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Edit", "Admin"))
     {
         <div class="panel-body">
             @Html.HiddenFor(m => m.GameId)
@@ -20,8 +20,11 @@
                 {
                     <div class="form-group">
                         <label>@(property.DisplayName ?? property.PropertyName)</label>
+                        
                         @if (property.PropertyName == "Description") { @Html.TextArea(property.PropertyName, null, new { @class = "form-control", rows = 5 }) }
                         else { @Html.TextBox(property.PropertyName, null, new { @class = "form-control" }) }
+                        
+                        @Html.ValidationMessage(property.PropertyName)
                     </div>
                 }
             }

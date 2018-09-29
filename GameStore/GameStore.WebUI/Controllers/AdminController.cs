@@ -14,7 +14,9 @@ namespace GameStore.WebUI.Controllers
 
         public AdminController (IGameRepository repo) { repository = repo; }
 
+
         public ViewResult Index() { return View(repository.Games); }
+
 
         public ViewResult Edit(int gameId)
         {
@@ -33,6 +35,11 @@ namespace GameStore.WebUI.Controllers
                 return RedirectToAction("Index");
             }
             else { return View(game); }
+        }
+
+        public ViewResult Create()
+        {
+            return View("Edit", new Game());
         }
     }
 }
