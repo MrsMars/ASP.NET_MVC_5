@@ -128,5 +128,30 @@ namespace GameStore.UnitTests
             mock.Verify(m => m.SaveGame(It.IsAny<Game>()), Times.Never());      // обращение к хранилищу не производится 
             Assert.IsInstanceOfType(result, typeof(ViewResult));
         }
+
+        [TestMethod]
+        public void Can_Delete_Valid_Games()
+        {
+            // arrange
+            Game game = new Game { GameId = 2, Name = "Game_2" };
+
+            Mock<IGameRepository> mock = new Mock<IGameRepository>();
+            mock.Setup(m => m.Games).Returns(new List<Game>
+            {
+                new Game { GameId = 1, Name = "Game_1" },
+                new Game { GameId = 2, Name = "Game_2" },
+                new Game { GameId = 3, Name = "Game_3" },
+                new Game { GameId = 4, Name = "Game_4" },
+                new Game { GameId = 5, Name = "Game_5" }
+            });
+
+            AdminController controller = new AdminController(mock.Object);
+
+            // act
+            controller.Delete(game.GameId);
+
+            // assert
+            mock.Verify(m => m.DeleteGame(game.GameId));
+        }
     }
 }
