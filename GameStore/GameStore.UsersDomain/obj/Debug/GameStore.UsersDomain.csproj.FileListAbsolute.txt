@@ -1,0 +1,12 @@
+D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.UsersDomain\bin\Debug\GameStore.UsersDomain.dll.config
+D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.UsersDomain\bin\Debug\GameStore.UsersDomain.dll
+D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.UsersDomain\bin\Debug\GameStore.UsersDomain.pdb
+D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.UsersDomain\bin\Debug\EntityFramework.dll
+D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.UsersDomain\bin\Debug\EntityFramework.SqlServer.dll
+D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.UsersDomain\bin\Debug\EntityFramework.xml
+D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.UsersDomain\bin\Debug\EntityFramework.SqlServer.xml
+D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.UsersDomain\obj\Debug\GameStore.UsersDomain.csprojAssemblyReference.cache
+D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.UsersDomain\obj\Debug\GameStore.UsersDomain.csproj.CoreCompileInputs.cache
+D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.UsersDomain\obj\Debug\GameStore.UsersDomain.csproj.CopyComplete
+D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.UsersDomain\obj\Debug\GameStore.UsersDomain.dll
+D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.UsersDomain\obj\Debug\GameStore.UsersDomain.pdb

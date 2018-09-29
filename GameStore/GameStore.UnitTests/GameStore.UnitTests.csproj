@@ -117,6 +117,10 @@
       <Project>{de412190-178c-4ea7-9b0a-a1308a9a397a}</Project>
       <Name>GameStore.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GameStore.UsersDomain\GameStore.UsersDomain.csproj">
+      <Project>{380713c2-a629-4408-8387-66080fe0b609}</Project>
+      <Name>GameStore.UsersDomain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GameStore.WebUI\GameStore.WebUI.csproj">
       <Project>{06e191e5-2b4c-4029-b60d-e054d9a8a3b6}</Project>
       <Name>GameStore.WebUI</Name>

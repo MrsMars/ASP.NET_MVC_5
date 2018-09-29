@@ -161,3 +161,6 @@ D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.UnitTests\bin\Debug\ru\System.W
 D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.UnitTests\bin\Debug\ru\System.Web.WebPages.resources.dll
 D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.UnitTests\bin\Debug\ru\System.Web.WebPages.Deployment.resources.dll
 D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.UnitTests\bin\Debug\ru\System.Web.WebPages.Razor.resources.dll
+D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.UnitTests\bin\Debug\GameStore.UsersDomain.dll
+D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.UnitTests\bin\Debug\GameStore.UsersDomain.pdb
+D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.UnitTests\bin\Debug\GameStore.UsersDomain.dll.config
