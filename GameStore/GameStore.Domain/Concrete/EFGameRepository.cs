@@ -13,5 +13,22 @@ namespace GameStore.Domain.Concrete
         EFDbContext context = new EFDbContext();
 
         public IEnumerable<Game> Games { get { return context.Games; } }
+
+        public void SaveGame(Game game)
+        {
+            if(game.GameId == 0) { context.Games.Add(game); }
+            else
+            {
+                Game dbEntry = context.Games.Find(game.GameId);
+                if(dbEntry != null)
+                {
+                    dbEntry.Name = game.Name;
+                    dbEntry.Description = game.Description;
+                    dbEntry.Price = game.Price;
+                    dbEntry.Category = game.Category;
+                }
+            }
+            context.SaveChanges();
+        }
     }
 }

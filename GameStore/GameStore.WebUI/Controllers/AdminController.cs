@@ -21,5 +21,18 @@ namespace GameStore.WebUI.Controllers
             Game game = repository.Games.FirstOrDefault(g => g.GameId == gameId);
             return View(game);
         }
+
+        [HttpPost]
+        public ActionResult Edit(Game game)
+        {
+            if (ModelState.IsValid)
+            {
+                repository.SaveGame(game);
+                TempData["message"] = string.Format("The changes in \"{0}\" were saved", game.Name);
+
+                return RedirectToAction("Index");
+            }
+            else { return View(game); }
+        }
     }
 }

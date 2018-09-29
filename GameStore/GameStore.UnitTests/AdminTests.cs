@@ -90,5 +90,43 @@ namespace GameStore.UnitTests
 
             // assert
         }
+
+        [TestMethod]
+        public void Can_Save_Valid_Changes()
+        {
+            // arrange
+            Mock<IGameRepository> mock = new Mock<IGameRepository>();
+
+            AdminController controller = new AdminController(mock.Object);
+
+            Game game = new Game { Name = "Test" };
+
+            // act
+            ActionResult result = controller.Edit(game);
+
+            // assert
+            mock.Verify(m => m.SaveGame(game));                         // обращение к хранилищу
+            Assert.IsNotInstanceOfType(result, typeof(ViewResult));     // проверка типа результата метода
+        }
+
+        [TestMethod]
+        public void Cannot_Save_Invalid_Changes()
+        {
+            // arrange
+            Mock<IGameRepository> mock = new Mock<IGameRepository>();
+
+            AdminController controller = new AdminController(mock.Object);
+
+            Game game = new Game { Name = "Test" };
+
+            controller.ModelState.AddModelError("error", "error");
+
+            // act
+            ActionResult result = controller.Edit(game);
+
+            // assert
+            mock.Verify(m => m.SaveGame(It.IsAny<Game>()), Times.Never());      // обращение к хранилищу не производится 
+            Assert.IsInstanceOfType(result, typeof(ViewResult));
+        }
     }
 }
