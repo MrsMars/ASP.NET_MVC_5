@@ -1,1 +1,18 @@
 ﻿
+@if (ViewBag.LogUserName == "")
+{
+    <div class="navbar-right">
+        @Html.ActionLink("Sign In", "Login", "Account") // @Html.ActionLink("Sign Up", "Register", "Account")
+    </div>
+}
+else
+{
+    <div class="navbar-text navbar-brand navbar-right">
+        @ViewBag.LogUserName // @Html.ActionLink("Sing Out", "LogOut", "Account")
+        @if (ViewBag.isAdmin == true)
+        {
+            <br />
+            @Html.ActionLink("Admin panel", "Index", "Admin")
+        }
+    </div>
+}
