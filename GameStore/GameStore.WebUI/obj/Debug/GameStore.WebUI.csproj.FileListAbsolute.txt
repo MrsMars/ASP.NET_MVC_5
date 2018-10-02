@@ -225,3 +225,5 @@ D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.WebUI\bin\System.ValueTuple.xml
 D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.WebUI\bin\GameStore.UsersDomain.dll
 D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.WebUI\bin\GameStore.UsersDomain.pdb
 D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.WebUI\bin\GameStore.UsersDomain.dll.config
+D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.WebUI\bin\System.Web.Providers.dll
+D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.WebUI\bin\System.Web.Providers.xml

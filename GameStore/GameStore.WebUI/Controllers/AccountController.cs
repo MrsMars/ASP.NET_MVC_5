@@ -1,12 +1,12 @@
 ﻿using GameStore.UsersDomain.Entities;
 using GameStore.UsersDomain.Concrete;
-using GameStore.UsersDomain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using GameStore.WebUI.Models;
 
 namespace GameStore.WebUI.Controllers
 {
@@ -25,7 +25,7 @@ namespace GameStore.WebUI.Controllers
             {
                 User user = null;
 
-                using (EFDbContext db = new EFDbContext())
+                using (EFDbUserContext db = new EFDbUserContext())
                 {
                     user = db.Users.FirstOrDefault(u => u.Email == model.Name && u.Password == model.Password);
                 }
@@ -33,6 +33,7 @@ namespace GameStore.WebUI.Controllers
                 if (user != null)
                 {
                     FormsAuthentication.SetAuthCookie(model.Name, true);
+
                     return RedirectToAction("List", "Game");
                 }
                 else { ModelState.AddModelError("", "User with this login isn't exist..."); }
@@ -40,8 +41,7 @@ namespace GameStore.WebUI.Controllers
             return View(model);
         }
 
-
-
+      
         public ActionResult Register()
         {
             return View();
@@ -55,16 +55,16 @@ namespace GameStore.WebUI.Controllers
             {
                 User user = null;
 
-                using(EFDbContext db = new EFDbContext())
+                using(EFDbUserContext db = new EFDbUserContext())
                 {
                     user = db.Users.FirstOrDefault(u => u.Email == model.Name);
                 }
 
                 if (user == null)
                 {
-                    using (EFDbContext db = new EFDbContext())
+                    using (EFDbUserContext db = new EFDbUserContext())
                     {
-                        db.Users.Add(new User { Email = model.Name, Password = model.Password });
+                        db.Users.Add(new User { Email = model.Name, Password = model.Password, RoleId = 2});
                         db.SaveChanges();
 
                         user = db.Users.Where(u => u.Email == model.Name && u.Password == model.Password).FirstOrDefault();
@@ -80,9 +80,5 @@ namespace GameStore.WebUI.Controllers
                 }
             return View(model);
         }
-
-
-
-
     }
 }

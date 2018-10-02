@@ -9,6 +9,7 @@ using GameStore.WebUI.Models;
 
 namespace GameStore.WebUI.Controllers
 {
+    [Authorize]
     public class CartController : Controller
     {
         private IGameRepository repository;
