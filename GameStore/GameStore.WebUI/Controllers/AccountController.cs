@@ -41,7 +41,23 @@ namespace GameStore.WebUI.Controllers
             return View(model);
         }
 
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
+        }
       
+        public PartialViewResult UserLogin()
+        {
+            string LogUserName = User.Identity.IsAuthenticated ? User.Identity.Name : "";
+            bool isAdmin = User.Identity.Name == "admin";
+            
+            ViewBag.LogUserName = LogUserName;
+            ViewBag.isAdmin = isAdmin;
+            return PartialView();
+        }
+
+
         public ActionResult Register()
         {
             return View();
