@@ -6,5 +6,8 @@ using System.Threading.Tasks;
 
 namespace GameStore.UsersDomain.Entities
 {
-
+    public class ThisUser
+    {
+        private User User { get; set; }
+    }
 }

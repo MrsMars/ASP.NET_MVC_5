@@ -14,5 +14,6 @@ namespace GameStore.UsersDomain.Concrete
         public EFDbUserContext() : base("UsersDbConnection") { }
         
         public DbSet<User> Users { get; set; }
+        public DbSet<Role> Roles { get; set; }
     }
 }
