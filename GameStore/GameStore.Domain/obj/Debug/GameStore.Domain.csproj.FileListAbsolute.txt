@@ -28,3 +28,4 @@ D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.Domain\bin\Debug\ru\System.Web.
 D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.Domain\bin\Debug\ru\System.Web.WebPages.resources.dll
 D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.Domain\bin\Debug\ru\System.Web.WebPages.Deployment.resources.dll
 D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.Domain\bin\Debug\ru\System.Web.WebPages.Razor.resources.dll
+D:\Work\GitHub\ASP.NET_MVC_5\GameStore\GameStore.Domain\obj\Debug\GameStore.Domain.csprojAssemblyReference.cache
